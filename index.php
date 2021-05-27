@@ -1,0 +1,333 @@
+<?php 
+
+
+error_reporting(E_ALL ^ E_NOTICE); // hide all basic notices from PHP
+
+//If the form is submitted
+if(isset($_POST['submitted'])) {
+	
+	// website 
+	if (trim($_POST['website']) != '') {
+		$hasError = true;
+    }
+
+	// require a name from user
+	if(trim($_POST['contactName']) === '') {
+		$nameError =  'Forgot your name!'; 
+		$hasError = true;
+	} else {
+		$name = trim($_POST['contactName']);
+	}
+	
+	// need valid email
+	if(trim($_POST['email']) === '')  {
+		$emailError = 'Forgot to enter in your e-mail address.';
+		$hasError = true;
+	} else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
+		$emailError = 'You entered an invalid email address.';
+		$hasError = true;
+	} else {
+		$email = trim($_POST['email']);
+	}
+		
+	// we need at least some content
+	if(trim($_POST['comments']) === '') {
+		$commentError = 'You forgot to enter a message!';
+		$hasError = true;
+	} else {
+		if(function_exists('stripslashes')) {
+			$comments = stripslashes(trim($_POST['comments']));
+		} else {
+			$comments = trim($_POST['comments']);
+		}
+	}
+
+	$hCaptchaKey = '';
+	$verifyUrl = 'https://hcaptcha.com/siteverify';
+	
+	$token = !empty($_POST['h-captcha-response']) ? $_POST['h-captcha-response'] : '';
+	
+		
+	// upon no failure errors let's email now!
+	if(!isset($hasError)) {
+		
+		$emailTo = 'jameskm1987@gmail.com';
+		$subject = 'Submitted message from '.$name;
+		$body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
+		$headers = 'From: ' .' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
+
+		mail($emailTo, $subject, $body, $headers);
+        
+        // set our boolean completion value to TRUE
+		$emailSent = true;
+	}
+}
+?>
+<!Doctype html>
+<html>
+<head>
+<title>Portfolio of James McCormack, Front End Developer in Watford/London</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43693081-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Hotjar Tracking Code for https://www.jamesmccormack.co.uk -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2223533,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body class>
+  <header role="banner">
+   <div class="header decorated-section">
+  	<div class="grid">
+  	 <div class="col-7 col-mobile-12 col-tablet-12">
+	  <div class="title">
+		<h1>James McCormack</h1>
+		<h2>full stack web developer</h2>
+	 </div>
+	</div>
+	<div class="contact">
+	<span class="contactdets phone"><i class="fa fa-phone"></i> <a href="tel:07522277904">07522277904</a></span><br>
+	<span class="contactdets"><i class="fa fa-envelope"></i> <a href="mailto:jameskm1987@gmail.com" title="Email me">jameskm1987@gmail.com</a></span>
+				<nav>
+					<ul class="nav social-networks">
+						<li>
+							<a target="_blank" class="twitter" href="http://twitter.com/james_m1987" title="Follow me on twitter">Twitter</a>
+						</li>
+						<li>
+							<a target="_blank" class="linkedin" href="http://uk.linkedin.com/pub/james-mccormack/53/740/a25" title="Find out about me on LinkedIn">LinkedIn</a>
+						</li>
+					</ul>
+				</nav>
+
+</div>
+  </div>
+ </div>
+  </header>
+ <div class="grid" role="main">		
+ 	<div class="col-7 col-tablet-12">
+			<section>
+				<h3>A little bit about me</h3>
+	            <p>Hi, I'm James, a full stack web developer based in Watford/London. Currently  working as a developer for a web development agency in Watford.</p>
+	            <p>I have <?php echo date('Y') - date('2015'); ?> years experience working with the following:</p> 
+<ul>
+  <li>PHP - Laravel / WordPress</li>
+  <li>HTML</li>
+  <li>CSS/SCSS & Bootstrap</li>
+  <li>javaScript - ES6 / jQuery</li>
+  <li>Webpack / Git</li>
+  
+</ul>
+				<p>View/Download my CV <a target="_blank" href="docs/James_McCormack_CV.pdf">PDF</a> or <a download href="docs/James_McCormack_CV.doc">Word (.doc)</a></p>
+			</section>
+		</div>
+		<div class="col-5 col-tablet-12">
+			<section>
+				<h3>Work</h3>
+				<ul class="recent-work list floated clearfix">
+					<li class="article">
+						<article>
+							<a target="_blank" href="http://www.futrients.com">
+								<figure>
+									<span class="figure">
+										<img alt="futrients website image" src="img/futrients.jpg" />
+									</span>
+								</figure>
+								<div class="details"><span class="not-link">HTML, CSS, PHP, MySQL, jQuery</span>
+									www.futrients.com
+								</div>
+							</a>
+						</article>
+					</li>
+					<li class="article last">
+						<article>
+							<a target="_blank" href="http://www.watsanajewellery.com">
+								<figure>
+									<span class="figure">
+										<img alt="watsanajewellery website image" src="img/watsanajewellery.jpg" />
+									</span>
+								</figure>
+								<div class="details"><span class="not-link">HTML, CSS, PHP, MySQL, jQuery</span>
+									www.watsanajewellery.com
+								</div>
+							</a>
+						</article>
+					</li>
+				</ul>
+			</section>
+			<a href="" class="trigger float-right" data-role="portfolio-trigger" onclick="">See more</a>
+		</div>
+	</div>
+ <div class="portfolio hidden decorated-section" data-role="portfolio-target">
+		<div class="grid">
+			<div class="col-12">
+				<div class="heading">
+					<h3>More of my work</h3>
+					<a data-role="portfolio-trigger" href class="trigger" onclick="">See more</a>
+				</div>
+			</div>
+			<div class="col-12">
+				<section>
+					<ul class="recent-work list floated">
+						<li class="article">
+							<a target="_blank" href="http://www.tynaninteriors.com">
+								<figure>
+									<span class="figure">
+											<img alt="tynaninteriors website image" src="img/tynaninteriors.jpg" />
+									</span>
+								</figure>
+								<div class="details"><span class="not-link">HTML, CSS, PHP, MySQL, jQuery</span>
+									www.tynaninteriors.com
+								</div>
+							</a>
+						</li>
+						<li class="article last">
+							<a target="_blank" href="http://www.bntelectrical.co.uk">
+								<figure>
+									<span class="figure">
+										<img alt="B&T Electical website image" src="img/B&Telectrical.jpg" />
+									</span>
+								</figure>
+								<div class="details"><span class="not-link">HTML, CSS, jQuery</span>
+									www.bntelectrical.co.uk
+								</div>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	
+<div id="contact-form" class="contact-form-decorated-section">
+<div class="grid">
+<div class="col-12">
+<h3>Get in touch</h3>
+</div>
+<div class="col-7 col-tablet-12"></div>
+<div class="col-5 contact-details col-tablet-12">
+
+		  <!-- @begin contact -->
+	<div id="contact" class="section">
+		<div class="container content">
+		
+	        <?php if(isset($emailSent) && $emailSent == true) { ?>
+                <p class="info">Your email was sent. I'll get back to you ASAP!</p>
+            <?php } else { ?>
+				
+				<div id="contact-form">
+					<?php if(isset($hasError) || isset($captchaError) ) { ?>
+                        <p class="alert">Error submitting the form</p>
+                    <?php } ?>
+					<p>Fields marked with a <span class="required">*</span> must be filled</p>
+					<form id="contact-us" action="" method="post">
+						<div class="formblock">
+							<label class="screen-reader-text">Name <span class="required">*</span></label>
+							<input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="txt requiredField" placeholder="Name:" />
+							<?php if($nameError != '') { ?>
+								<br /><span class="error"><?php echo $nameError;?></span> 
+							<?php } ?>
+						</div>
+                        
+						<div class="formblock">
+							<label class="screen-reader-text">Email <span class="required">*</span></label>
+							<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="txt requiredField email" placeholder="Email:" />
+							<?php if($emailError != '') { ?>
+								<br /><span class="error"><?php echo $emailError;?></span>
+							<?php } ?>
+						</div>
+                        
+						<div class="formblock">
+							<label class="screen-reader-text">Message <span class="required">*</span></label>
+							 <textarea name="comments" id="commentsText" class="txtarea requiredField" placeholder="Message:"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
+							<?php if($commentError != '') { ?>
+								<br /><span class="error"><?php echo $commentError;?></span> 
+							<?php } ?>
+						</div>
+							<input type="hidden" name="website" value="" />
+							<input class="button" type="submit" value="Send me Mail!" id="submit">
+							<input type="hidden" name="submitted" id="submitted" value="true" />
+							<div class="h-captcha" data-sitekey="1fc07481-66f7-40b8-979a-ff9c9e09ed69"></div>
+					</form>			
+				</div>
+				
+			<?php } ?>
+		</div>
+    </div><!-- End #contact -->
+</div>
+</div>
+</div>
+<footer>
+	<div class="footer" role="contentinfo">
+			<div class="grid">
+				<div class="col-12">
+					<small>&copy; copyright James McCormack, <?php echo date('Y'); ?> </small>
+				</div>
+			</div>
+		</div>
+</footer>
+
+<!-- Javascript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.min.js" ></script>
+	<script type="text/javascript" src="js/validate.min.js"></script>
+	<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+	$(document).ready(function() {
+		$('form#contact-us').submit(function() {
+			$('form#contact-us .error').remove();
+			var hasError = false;
+			$('.requiredField').each(function() {
+				if($.trim($(this).val()) == '') {
+					var labelText = $(this).prev('label').text();
+					$(this).parent().append('<span class="error">Your forgot to enter your '+labelText+'.</span>');
+                    $(this).parent().addClass('input-error');
+					$(this).addClass('inputError');
+					hasError = true;
+				} else if($(this).hasClass('email')) {
+					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+					if(!emailReg.test($.trim($(this).val()))) {
+						var labelText = $(this).prev('label').text();
+						$(this).parent().append('<span class="error">Sorry! You\'ve entered an invalid '+labelText+'.</span>');
+						$(this).addClass('inputError');
+						hasError = true;
+					}
+				}
+			});
+			if(!hasError) {
+				var formInput = $(this).serialize();
+				$.post($(this).attr('action'),formInput, function(data){
+					$('form#contact-us').slideUp("fast", function() {				   
+						$(this).before('<p class="tick"><strong>Thanks!</strong> Your email has been delivered. I will get back to you ASAP!</p>');
+					});
+				});
+			}
+			
+			return false;	
+		});
+	});
+	//-->!]]>
+</script>
+ </body>
+</html>
