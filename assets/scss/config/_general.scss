@@ -1,0 +1,10 @@
+body {
+    line-height: 2rem;
+    background: $light-grey url("#{$imgDir}/bg_texture.png") fixed repeat center top;
+}
+
+.section-light {
+    padding: 20px 0;
+    background: rgba(255, 255, 255, .3);
+    border-top: solid 1px $grey-orange;
+}

@@ -1,0 +1,10 @@
+$custom-colors: (
+    'light-grey': #ebebe5,
+    'dark-grey': #2e2e2e,
+    'grey-orange': #d8d2c9,
+    'slate-grey': #888888,
+    'tan-brown': #aea18d
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);

@@ -1,0 +1,13 @@
+.portfolio {
+    .portfolio-item {
+        text-decoration: none;
+        box-shadow: 0 0 5px $slate-grey;
+        display: block;
+        line-height: 0;
+        font-size: 0;
+        padding: 25px;
+        background-color: $white;
+        margin-bottom: 1rem;
+        transition: all .4s ease-in;
+    }
+}

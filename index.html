@@ -1,0 +1,263 @@
+<!Doctype html>
+<html>
+<head>
+<title>Portfolio of James McCormack, Front End Developer in Watford/London</title>
+	<link rel="stylesheet" href="/assets/build/main.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTP8BXN9YT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NTP8BXN9YT');
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LewFUQaAAAAADBtlN9b7wRYNyRHrSHx6ipS-3eA"></script>
+<script>
+   grecaptcha.ready(function() {
+       grecaptcha.execute('6LewFUQaAAAAADBtlN9b7wRYNyRHrSHx6ipS-3eA', {action: 'homepage'})
+       .then(function(token) {
+	       
+	 var form = document.querySelector('#contact-us');
+         document.getElementById('captchaResponse').value = token;
+	 form.setAttribute('action', form.querySelector('#action').value);
+       });
+     });
+</script>
+</head>
+<body>
+    <header class="section-light" role="banner">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+	            <div class="title">
+		            <h1>James McCormack</h1>
+		            <h2>Full Stack Web Developer</h2>
+	            </div>
+
+                <div class="contact col-12 col-md-5 d-flex flex-column w-auto">
+                    <a class="text-dark" href="tel:07522277904"><i class="icon-phone text-dark fs-5"></i>07522277904</a>
+                    <a class="text-dark" href="mailto:jameskm1987@gmail.com" title="Email me"><i class="icon-mail-alt text-dark fs-5 text-dark-grey"></i>jameskm1987@gmail.com</a>
+                    
+                    <nav>
+                        <ul class="nav social-networks mt-2">
+                            <li>
+                                <a target="_blank" class="github" href="http://twitter.com/jamesm1987" title="Checkk out my work on Github"><i class="icon-github-circled fs-3 text-dark"></i></a>
+                            </li>
+                            <li>
+                                <a target="_blank" class="twitter" href="http://twitter.com/james_m1987" title="Follow me on twitter"><i class="icon-twitter fs-3 text-dark"></i></a>
+                            </li>
+                            <li>
+                                <a target="_blank" class="linkedin" href="http://uk.linkedin.com/pub/james-mccormack/53/740/a25" title="Find out about me on LinkedIn"><i class="icon-linkedin fs-3 text-dark"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+    
+                </div>
+	        </div>
+	
+            
+        </div>
+  </header>
+  
+	<main class="my-5">
+
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-12 col-lg-7">
+					<section>
+						<h3 class="border-bottom border-1 border-tan-brown">A little bit about me</h3>
+						<p>Hi, I'm James, a web developer based in Watford/London. Currently working for a web development agency in Watford.</p>
+						<p>I have 7 years experience working with the following:</p> 
+						
+						<ul class="list-group list-group-flush list-background-none list-border-none list-indent-none">
+							<li class="list-group-item"><i class="icon-angle-right"></i> PHP - Laravel / WordPress (developing bespoke themes)</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> Working with various APIs</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> MySQL</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> HTML</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> CSS/SCSS & Bootstrap</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> javaScript - ES6 / jQuery</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> Webpack / Gulp</li>
+							<li class="list-group-item"><i class="icon-angle-right"></i> Git</li>
+							
+						</ul>
+							
+						<h2 class="fs-5 my-3">My CV</h2>
+							<div>
+								<a class="btn btn-dark rounded-0 me-3" target="_blank" href="docs/James_McCormack_CV.pdf">PDF </a> <a class="btn btn-light rounded-0" download href="docs/James_McCormack_CV.doc">Word (.docx)</a>
+							</div>
+					</section>
+				</div>
+				
+				<div class="col-12 col-lg-5">
+					<section class="portfolio">
+						<h3>Work</h3>
+			
+								<article>
+									
+										<figure>
+											<div class="details">
+												<span class="">HTML, CSS, PHP, MySQL, jQuery</span>
+											</div>
+											<span class="portfolio-item d-inline-flex">
+												<img class="img-fluid" alt="futrients website image" src="/assets/img/futrients.jpg" width="361" height="241"/>
+											</span>
+											<a class="d-block" href="https://www.futrients.com">www.futrients.com</a>
+										</figure>
+										
+										
+									</a>
+								</article>
+
+			
+								<article>
+									
+									<figure>
+										<div class="details">
+											<span class="not-link">HTML, CSS, PHP, MySQL, jQuery</span>
+										</div>
+										<span class="figure portfolio-item d-inline-flex">
+											<img class="img-fluid" alt="watsanajewellery website image" src="/assets/img/watsanajewellery.jpg" width="368" height="241"/>
+										</span>
+										<a class="d-block" target="_blank" href="https://www.watsanajewellery.com">www.watsanajewellery.com</a>
+									</figure>
+								
+								</article>
+						
+					</section>
+					<button class="btn btn-dark rounded-0 mb-5" type="button" aria-expanded="false" aria-controls="#portfolio-more-work" data-bs-toggle="collapse" data-bs-target="#portfolio-more-work" data-expandedtext="See less" data-collapsedtext="See more" data-toggle-text-button>See more</button>
+				</div>
+			</div> 
+			
+			<div id="portfolio-more-work" class="portfolio collapse decorated-section container mb-5" data-role="portfolio-target">
+				<div class="row">
+					<div class="col-12">
+						<div class="heading">
+							<h3>More of my work</h3>
+						</div>
+					</div>
+					<div class="col-12">
+						<section>
+							<figure>
+								<div class="details">
+									<span class="not-link">HTML, CSS, PHP, MySQL, jQuery</span>
+								</div>
+								<span class="figure portfolio-item d-inline-flex">
+									<img class="img-fluid" alt="tynaninteriors website image" src="/assets/img/tynaninteriors.jpg" width="368" height="241"/>
+								</span>
+								<a class="d-block" target="_blank" href="https://www.tynaninteriors.com">www.tynaninteriors.com</a>
+							</figure>
+
+							<figure>
+								<div class="details">
+									<span class="not-link">HTML, CSS, jQuery</span>
+								</div>
+								<span class="figure portfolio-item d-inline-flex">
+									<img class="img-fluid" alt="bntelectrical website image" src="/assets/img/B&Telectrical.jpg" width="368" height="241"/>
+								</span>
+								<a class="d-block" target="_blank" href="https://www.bntelectrical.co.uk">www.bnterlectric.co.uk</a>
+							</figure>
+							
+						</section>
+					</div>
+				</div>
+			</div>
+
+			
+			<div id="contact-form" class="contact-form-decorated-section">
+				<div class="row">
+					<div class="col-12">
+						<h2>Get in touch</h2>
+						<p><small>Fields marked with a <span class="required text-danger">*</span> must be filled</small></p>
+					</div>
+				</div>
+
+				<div class="row justify-content-center justify-content-lg-start">
+					<div class="col col-lg-7">
+
+						<!-- @begin contact -->
+						<div id="contact" class="section">
+							<div class="container content">
+									
+									<div id="contact-form">
+
+										<form action="#" method="POST" id="contact-us">
+												<input type="hidden" id="action" value="https://getform.io/f/c80c9962-1cf0-43f2-a92e-fa5ae9b1398a" />
+											<div class="form-row">
+												<label class="screen-reader-text my-2">Name <span class="required text-danger">*</span></label>
+												<input type="text" name="contactName" id="contactName" value="" class="form-control" placeholder="Name:" required />
+
+											</div>
+											
+											<div class="form-row">
+												<label class="screen-reader-text my-2">Email <span class="required text-danger">*</span></label>
+												<input type="text" name="email" id="email" value="" class="form-control email" placeholder="Email:" required />
+											</div>
+											
+											<div class="form-row">
+												<label class="screen-reader-text my-2">Message <span class="required text-danger">*</span></label>
+												<textarea name="comments" id="commentsText" class="form-control requiredField" rows="6" placeholder="Message:" required></textarea>
+											</div>
+												<input type="hidden" name="_gotcha" style="display:none !important" />
+												<input type="hidden" id="captchaResponse" name="g-recaptcha-response" required />
+												<input class="btn btn-dark rounded-0 my-3" type="submit" value="Send me Mail!" id="submit" />
+										</form>			
+									</div>
+
+							</div>
+						
+						</div><!-- End #contact -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="footer container-fluid px-4 sm-lg-5" role="contentinfo">
+				<div class="row">
+					<div class="col-12">
+						<small>&copy; copyright James McCormack, <span id="copyright-date"></span></small>
+					</div>
+				</div>
+			</div>
+	</footer>
+	<script>
+		document.querySelector('#copyright-date').textContent = new Date().getFullYear();
+	</script>
+	<!-- Javascript -->
+	<script async defer src="/assets/build/js/app.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('form#contact-us').submit(function() {
+			$('form#contact-us .error').remove();
+			var hasError = false;
+			$('.requiredField').each(function() {
+				if($.trim($(this).val()) == '') {
+					var labelText = $(this).prev('label').text();
+					$(this).parent().append('<span class="error">Your forgot to enter your '+labelText+'.</span>');
+                    $(this).parent().addClass('input-error');
+					$(this).addClass('inputError');
+					hasError = true;
+				} else if($(this).hasClass('email')) {
+					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+					if(!emailReg.test($.trim($(this).val()))) {
+						var labelText = $(this).prev('label').text();
+						$(this).parent().append('<span class="error">Sorry! You\'ve entered an invalid '+labelText+'.</span>');
+						$(this).addClass('inputError');
+						hasError = true;
+					}
+				}
+			});
+	
+	
+		});
+	});
+
+</script>
+	
+	
+ </body>
